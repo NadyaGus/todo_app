@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import { Button, Container, TextInput } from '@mantine/core';
+import { Button, TextInput } from '@mantine/core';
 import { Form, useForm } from '@mantine/form';
 
 import classes from './index.module.css';
@@ -21,11 +21,9 @@ export const AddTodoForm = ({ addTodo }: { addTodo: (title: string) => void }): 
   };
 
   return (
-    <Container my={'auto'}>
-      <Form className={classes.form} form={form} onSubmit={(values) => handleFormSubmit(values)}>
-        <TextInput placeholder="Название задачи" {...form.getInputProps('title')} flex={1} />
-        <Button type="submit">Добавить задачу</Button>
-      </Form>
-    </Container>
+    <Form className={classes.form} form={form} onSubmit={(values) => handleFormSubmit(values)}>
+      <TextInput placeholder="Название задачи" {...form.getInputProps('title')} flex={1} />
+      <Button type="submit">Добавить задачу</Button>
+    </Form>
   );
 };

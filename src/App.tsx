@@ -1,6 +1,6 @@
 import { type ReactElement, useState } from 'react';
 
-import { Container } from '@mantine/core';
+import { Container, Flex, Paper, Title } from '@mantine/core';
 
 import type { Todo } from './types/todo';
 
@@ -45,11 +45,21 @@ function App(): ReactElement {
 
   return (
     <div className="App">
-      <Container maw={800}>
-        <h1>todos</h1>
-        <AddTodoForm addTodo={addTodo} />
-        <TodoList list={filterTodo(filter)} toggleTodo={toggleTodo} />
-        <Navigation deleteCompleted={deleteCompleted} filterTodo={setFilter} tasksCount={filterTodo('active').length} />
+      <Container maw={800} miw={320}>
+        <Title fw={300} my={40} order={1} size={60} ta={'center'}>
+          todos
+        </Title>
+        <Paper my={40} p={40} radius={20} withBorder>
+          <Flex direction={'column'} gap={40}>
+            <AddTodoForm addTodo={addTodo} />
+            <TodoList list={filterTodo(filter)} toggleTodo={toggleTodo} />
+            <Navigation
+              deleteCompleted={deleteCompleted}
+              filterTodo={setFilter}
+              tasksCount={filterTodo('active').length}
+            />
+          </Flex>
+        </Paper>
       </Container>
     </div>
   );

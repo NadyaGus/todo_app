@@ -12,9 +12,9 @@ export const Navigation = ({
   tasksCount: number;
 }): ReactElement => {
   return (
-    <Flex align="center" justify="space-between">
+    <Flex align="center" direction={{ base: 'column', sm: 'row' }} gap={'lg'} justify="space-between">
       <Text>{`Осталось задач: ${tasksCount}`}</Text>
-      <Tabs defaultValue="all" variant="outline">
+      <Tabs defaultValue="all" variant="default">
         <Tabs.List justify="center">
           <Tabs.Tab onClick={() => filterTodo('all')} value="all">
             Все
