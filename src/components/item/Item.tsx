@@ -2,6 +2,8 @@ import { type ReactElement, useState } from 'react';
 
 import { Checkbox, Flex, ListItem } from '@mantine/core';
 
+import classes from './index.module.css';
+
 interface Props {
   todo: {
     completed: boolean;
@@ -24,7 +26,14 @@ export const Item = ({ todo, toggleTodo }: Props): ReactElement => {
   return (
     <ListItem key={todo.id}>
       <Flex align="center" gap="md" justify="space-between">
-        <Checkbox checked={checked} fw={'bolder'} label={title} onChange={handleChange} size="md" />
+        <Checkbox
+          checked={checked}
+          className={checked ? classes.checked : ''}
+          fw={'bolder'}
+          label={title}
+          onChange={handleChange}
+          size="md"
+        />
       </Flex>
     </ListItem>
   );

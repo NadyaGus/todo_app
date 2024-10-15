@@ -1,0 +1,5 @@
+.checked {
+  color: gray;
+  text-decoration: line-through;
+  transition: 0.3s;
+}
