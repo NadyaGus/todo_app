@@ -6,7 +6,7 @@ import type { Todo } from './types/todo';
 
 import { AddTodoForm } from './components/form';
 import { TodoList } from './components/list';
-import { Navigation } from './components/navigation/navigation';
+import { Navigation } from './components/navigation';
 import { todosList } from './utils/todos-list';
 
 function App(): ReactElement {
