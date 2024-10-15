@@ -1,4 +1,4 @@
-import { type ReactElement, useState } from 'react';
+import { type ReactElement } from 'react';
 
 import { Checkbox, Flex, ListItem } from '@mantine/core';
 
@@ -16,10 +16,7 @@ interface Props {
 export const Item = ({ todo, toggleTodo }: Props): ReactElement => {
   const { completed, id, title } = todo;
 
-  const [checked, setChecked] = useState(completed);
-
   const handleChange = (): void => {
-    setChecked(!checked);
     toggleTodo(id);
   };
 
@@ -27,8 +24,8 @@ export const Item = ({ todo, toggleTodo }: Props): ReactElement => {
     <ListItem key={todo.id}>
       <Flex align="center" gap="md" justify="space-between">
         <Checkbox
-          checked={checked}
-          className={checked ? classes.checked : ''}
+          checked={completed}
+          className={completed ? classes.checked : ''}
           fw={'bolder'}
           label={title}
           onChange={handleChange}
