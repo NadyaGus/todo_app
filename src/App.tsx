@@ -30,6 +30,7 @@ function App(): ReactElement {
     },
     [list],
   );
+
   const toggleTodo = (id: number): void => {
     setList(
       list.map((todo) => {

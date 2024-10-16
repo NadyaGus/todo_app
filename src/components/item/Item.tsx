@@ -2,14 +2,12 @@ import { type ReactElement } from 'react';
 
 import { Checkbox, Flex, ListItem } from '@mantine/core';
 
+import type { Todo } from '../../types/todo';
+
 import classes from './index.module.css';
 
 interface Props {
-  todo: {
-    completed: boolean;
-    id: number;
-    title: string;
-  };
+  todo: Todo;
   toggleTodo: (id: number) => void;
 }
 
