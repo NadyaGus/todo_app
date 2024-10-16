@@ -1,4 +1,4 @@
-import { type ReactElement, useState } from 'react';
+import { type ReactElement, useCallback, useState } from 'react';
 
 import { Container, Flex, Paper, Title } from '@mantine/core';
 
@@ -17,17 +17,19 @@ function App(): ReactElement {
     setList([...list, { completed: false, id: list.length + 1, title }]);
   };
 
-  const filterTodo = (filter: 'active' | 'all' | 'completed'): Todo[] => {
-    switch (filter) {
-      case 'active':
-        return list.filter((todo) => !todo.completed);
-      case 'completed':
-        return list.filter((todo) => todo.completed);
-      default:
-        return list;
-    }
-  };
-
+  const filterTodo = useCallback(
+    (filter: 'active' | 'all' | 'completed'): Todo[] => {
+      switch (filter) {
+        case 'active':
+          return list.filter((todo) => !todo.completed);
+        case 'completed':
+          return list.filter((todo) => todo.completed);
+        default:
+          return list;
+      }
+    },
+    [list],
+  );
   const toggleTodo = (id: number): void => {
     setList(
       list.map((todo) => {
